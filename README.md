@@ -12,3 +12,19 @@ use with Express
 
 Here I created a project management web app with user to assign the task, where project and user can be
 created, Read, Update and Delete the project. 
+
+## Apollo Client
+
+Used Apollo client to query GraphQL API.
+
+## Front-End
+
+Apollp Client, React and Bootstrap UI
+
+## Server
+
+Node.js, express-graphql and GraphQL
+
+## Database
+
+MongoDB Atlas
