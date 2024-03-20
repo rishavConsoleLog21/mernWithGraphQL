@@ -5,11 +5,8 @@ const DELETE_CLIENT = gql`
     deleteClient(id: $id) {
       id
       name
-      lastName
       email
       phone
-      state
-      country
     }
   }
 `;
