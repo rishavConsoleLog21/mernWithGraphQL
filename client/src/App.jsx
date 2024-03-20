@@ -1,8 +1,8 @@
 import Header from "./components/Header";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import Client from "./components/Client";
-import Projects from "./components/Projects";
-import AddClientModal from "./components/AddClientModal";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -16,8 +16,7 @@ const cache = new InMemoryCache({
         projects: {
           merge(existing, incoming) {
             return incoming;
-        
-          }
+          },
         },
       },
     },
@@ -26,19 +25,22 @@ const cache = new InMemoryCache({
 
 const client = new ApolloClient({
   uri: "http://localhost:3000/graphql",
-  cache
+  cache,
 });
 
 function App() {
   return (
     <>
       <ApolloProvider client={client}>
-        <Header />
-        <div className="container">
-          <AddClientModal />
-          <Projects />
-          <Client />
-        </div>
+        <Router>
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </Router>
       </ApolloProvider>
     </>
   );
