@@ -32,7 +32,7 @@ export default function AddProjectModal() {
       return alert("Please fill in all fields");
     }
 
-    addProject({ name, description, clientId, status });
+    addProject(name, description, clientId, status);
 
     setName("");
     setDescription("");
