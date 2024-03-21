@@ -41,7 +41,10 @@ export default function AddProjectModal() {
   };
 
   if (loading) return null;
-  if (error) return "Something Went Wrong";
+  if (error) {
+    console.error(error);
+    return <p>Something Wrong!!!</p>;
+  }
 
   return (
     <>
