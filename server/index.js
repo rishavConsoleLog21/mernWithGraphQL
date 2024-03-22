@@ -23,16 +23,12 @@ app.use(
 
 // Serve client
 if (process.env.NODE_ENV === "production") {
- app.use(express.static('public'))
+  app.use(express.static("public"));
 
   app.get("*", (req, res) =>
-    res.sendFile(
-      path.resolve(__dirname, "../", "public", "index.html")
-    )
+    res.sendFile(path.resolve(__dirname, "public", "index.html"))
   );
-}
-
-else{
+} else {
   app.get("/", (req, res) => {
     res.send("Please set to production mode to see the client side.");
   });
